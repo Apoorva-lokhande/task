@@ -1,0 +1,95 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Testimonal</title>
+<script src=""></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+  body{
+    padding-top: 25px
+  }
+.row{
+  padding-left: 350px;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="card" style="width: 18rem;">
+  <img src="" class="card-img-top" alt="" id="img">
+  <div class="card-body">
+    <h5 class="card-title" id="title"></h5>
+    <p class="card-text" id="caption"></p>
+  </div>
+  <ul class="list-group list-group-flush" >
+    <strong>Position: </strong><li class="list-group-item"></li>
+    <strong>Position At: </strong>
+    <li class="list-group-item"></li>
+    <strong>Experience: </strong>
+    <li class="list-group-item"></li>
+  </ul>
+  <div class="card-body" style="padding-left: 200px;display: none;" id="card-body">
+    <button class="btn btn-primary m-2" id="next" >Next</button> 
+</div>
+</div>
+    </div>
+  </div>
+  </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script>
+  var testimanl_data=[
+  {
+    "id":1,
+    "testimoanl_img":"https://cdn4.iconfinder.com/data/icons/business-vol-4-2/100/Artboard_13-512.png",
+    "name":"Jeevan Rayala",
+    'caption':"Nothing is Permenant Except Change",
+    "position":"Python Developer",
+    "positionAt":"Cogent",
+    "exp":"1.8 years"
+  },
+  {
+    "id":2,
+    "testimoanl_img":"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRp3tBB0wjGPw3mghwlTFM4iUyVocA8n7hwRw&usqp=CAU",
+    "name":"Apporva",
+    'caption':"Good Programmer",
+    "position":"Python Developer",
+    "positionAt":"Quantum",
+    "exp":"2 years"
+  },
+  {
+    "id":3,
+    "testimoanl_img":"https://cdn4.iconfinder.com/data/icons/business-vol-4-2/100/Artboard_13-512.png",
+    "name":"Shiva ram",
+    'caption':"Good Knowledge on Java",
+    "position":"Java Developer",
+    "positionAt":"TCS",
+    "exp":"5years"
+  }
+  ]
+function loadCard(index){
+  data_obj=testimanl_data[index]
+  document.getElementById('title').innerText=data_obj.name
+  document.getElementById('caption').innerText=data_obj.caption
+  document.getElementById('img').setAttribute('src',data_obj.testimoanl_img)
+  let li_tags=document.getElementsByTagName('li')
+  li_tags[0].innerText=data_obj.position
+  li_tags[1].innerText=data_obj.positionAt
+  li_tags[2].innerText=data_obj.exp
+  if (index!=testimanl_data.length-1){
+    document.getElementById('card-body').style.display="block";
+    let next=index+1
+    document.getElementById('next').setAttribute('onclick',"loadCard("+next+")")
+  }
+  else{
+    document.getElementById('card-body').style.display="none";
+  }
+
+}
+loadCard(0)
+</script>
+</html>
+
